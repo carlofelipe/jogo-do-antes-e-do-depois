@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.container_box_principal {
+         height: 300px;
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center
+         border: 2px black solid;
+    }
+    
+    .boxNumMeio {
+         width: 33%;
+         height: 300px;
+         background: red;
+         border:2px black solid;
+         font-size:7em;
+         font-weight: bolder;
+         line-height: 300px;
+         text-align:center;
+    }
+
+    .boxAntecessor{
+    	width: 33%;
+        height: 300px;
+        background: yellow;
+        border:2px black solid;
+        font-size:7em;
+        font-weight: bolder;
+        line-height: 300px;
+        text-align:center;
+    }
+
+    .boxSucessor{
+    	width: 33%;
+        height: 300px;
+        background: blue;
+        border:2px black solid;
+        font-size:7em;
+        font-weight: bolder;
+        line-height: 300px;
+        text-align:center;
+    }
+
+    body {
+        margin: 0px;
+        padding:0px;
+        font-family: sans-serif;
+ 	}
+
+ 	.container_site {
+ 		width: 100vw;
+		height: 100vh;
+		margin-left:auto;
+		margin-right:auto;
+		text-align: center;
+	}
+
+	.container_box_escolha {
+		 height: 80px;
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center
+         border: 1px black solid;
+	}
+
+	.boxSucessorEscolha{
+    	width: 33.3%;
+        height: 80px;
+    }
+
+    .boxAntecessorEscolha{
+    	width: 33.3%;
+        height: 80px;
+    }
+
+    .boxNumMeioEscolha {
+         width: 33.3%;
+         height: 80px;
+    }
+
+    .botaoEscolha {
+    	width: 8%;
+    	height: 40px;
+    	background: black; 
+    	color:white;
+    	font-weight: bold;
+    	font-size: 2em;
+    }
+
+</style>
+
+<script type="text/javascript">
+		
+		var numeroInicialDoJogoAnterior = 0
+
+		function iniciaJogo(){
+			
+			document.getElementById("antecessor").innerHTML = "";
+			document.getElementById("sucessor").innerHTML = "";
+
+			var numeroInicial = Math.floor(Math.random() * 10);
+			
+			if (numeroInicial == 0)
+				numeroInicial++;
+			if (numeroInicial == 9)
+				numeroInicial--;
+
+			while (numeroInicial == numeroInicialDoJogoAnterior) {
+				numeroInicial = Math.floor(Math.random() * 10);
+				if (numeroInicial == 0)
+					numeroInicial++;
+				if (numeroInicial == 9)
+					numeroInicial--;				
+			}
+				
+			numeroInicialDoJogoAnterior = numeroInicial				
+			document.getElementById("exibe_primeiro_num").innerHTML = numeroInicial;
+		}
+
+		function escolheAntecessor(num) {
+			document.getElementById("antecessor").innerHTML = num;
+		}
+
+		function escolheSucessor(num) {
+			document.getElementById("sucessor").innerHTML = num;
+		}
+
+		function vejaAcertou() {
+			
+			if (document.getElementById("antecessor").innerHTML == "") {
+
+				alert("CADÊ O NÚMERO QUE VEM ANTES ???");
+				return
+			}
+
+			if (document.getElementById("sucessor").innerHTML == "") {
+				
+				alert("CADÊ O NÚMERO QUE VEM DEPOIS ???");
+				return 
+			}
+
+			var antecessor  = parseInt(document.getElementById("antecessor").innerHTML);					
+			var doMeio = parseInt(document.getElementById("exibe_primeiro_num").innerHTML);
+			var sucessor  = parseInt(document.getElementById("sucessor").innerHTML);
+
+			if (!(sucessor ==  doMeio + 1)) {
+				alert("ERROU!!!");
+				return 	
+			}
+
+			if (!(antecessor ==  doMeio - 1)) {
+				alert("ERROU!!!");
+				return 	 	
+			}
+
+			alert("ACERTOU!!!");
+			return
+
+		}		
+
+</script>
+<body>
+<div class="container_site">	
+	<h1 style="text-shadow:2px 2px grey;">QUEM VEM ANTES E DEPOIS?</h1>	
+	<div class="container_box_principal">
+		<div class="boxAntecessor" id="antecessor"></div>
+		<div class="boxNumMeio" id="exibe_primeiro_num"></div>
+		<div class="boxSucessor" id="sucessor"></div>
+	</div>
+	<br><br>
+	<div class="container_box_escolha">
+		<div class="boxAntecessorEscolha">
+			<button class="botaoEscolha" onclick="escolheAntecessor(0)">0</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(1)">1</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(2)">2</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(3)">3</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(4)">4</button>		
+			<button class="botaoEscolha" onclick="escolheAntecessor(5)">5</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(6)">6</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(7)">7</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(8)">8</button>
+			<button class="botaoEscolha" onclick="escolheAntecessor(9)">9</button>
+		</div>
+		<div class="boxNumMeioEscolha"></div>
+		<div class="boxSucessorEscolha">
+			<button class="botaoEscolha" onclick="escolheSucessor(0)">0</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(1)">1</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(2)">2</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(3)">3</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(4)">4</button>		
+			<button class="botaoEscolha" onclick="escolheSucessor(5)">5</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(6)">6</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(7)">7</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(8)">8</button>
+			<button class="botaoEscolha" onclick="escolheSucessor(9)">9</button>
+		</div>
+	</div>
+	<br>
+	<button onclick="iniciaJogo()" style="width:20%;font-size:2em;background:red;color:white;height:50px;border-radius:5px;border:5px solid black;">Iniciar Jogo</button>
+
+	<button onclick="vejaAcertou()" style="width:20%;font-size:2em;background:red;color:white;height:50px;border-radius:5px;border:5px solid black;">Veja se Acertou!!</button>
+</div>
+
+<!-- Modal HTML embedded directly into document -->
+<div id="acerto" class="modal">
+  <p>PARABÉNS.. VOCÊ ACERTOU!!!</p>
+  <a href="#" rel="modal:close">FECHAR</a>
+</div>
+
+<!-- Modal HTML embedded directly into document -->
+<div id="erro" class="modal">
+  <p>AH QUE PENA TENTE DE NOVO!!!</p>
+  <a href="#" rel="modal:close">FECHAR</a>
+</div>
+
+
+
+
+
+</body>
+</html>
