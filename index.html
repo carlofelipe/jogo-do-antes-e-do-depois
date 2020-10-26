@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>QUEM VEM ANTES E DEPOIS?</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 <style type="text/css">
 	.container_box_principal {
@@ -85,13 +87,35 @@
     }
 
     .botaoEscolha {
-    	width: 8%;
-    	height: 40px;
+    	width: 16%;
+    	height: 50px;
     	background: black; 
     	color:white;
     	font-weight: bold;
     	font-size: 2em;
     }
+
+    .botaoAcao {
+    	width:20%;
+    	font-size:1.2em;
+    	background:red;
+    	color:white;
+    	height:50px;
+    	border-radius:5px;
+    	border:5px solid black;
+    }
+
+    @media only screen and (max-width: 500px) {
+    	.botaoAcao {
+    		width:20%;
+    		font-size:0.8em;
+    		background:red;
+    		color:white;
+    		height:50px;
+    		border-radius:5px;
+    		border:5px solid black;
+    	}
+    }	
 
 </style>
 
@@ -150,16 +174,16 @@
 			var sucessor  = parseInt(document.getElementById("sucessor").innerHTML);
 
 			if (!(sucessor ==  doMeio + 1)) {
-				alert("ERROU!!!");
+				alert("QUE PENA TENTE DE NOVO!!!");
 				return 	
 			}
 
 			if (!(antecessor ==  doMeio - 1)) {
-				alert("ERROU!!!");
+				alert("QUE PENA TENTE DE NOVO!!!");
 				return 	 	
 			}
 
-			alert("ACERTOU!!!");
+			alert("PARABÉNS VOCÊ ACERTOU!!!");
 			return
 
 		}		
@@ -201,27 +225,10 @@
 			<button class="botaoEscolha" onclick="escolheSucessor(9)">9</button>
 		</div>
 	</div>
-	<br>
-	<button onclick="iniciaJogo()" style="width:20%;font-size:2em;background:red;color:white;height:50px;border-radius:5px;border:5px solid black;">Iniciar Jogo</button>
+	<br><br>
+	<button onclick="iniciaJogo()" class="botaoAcao">INICIAR</button>
 
-	<button onclick="vejaAcertou()" style="width:20%;font-size:2em;background:red;color:white;height:50px;border-radius:5px;border:5px solid black;">Veja se Acertou!!</button>
+	<button onclick="vejaAcertou()" class="botaoAcao">VEJA SE ACERTOU!!</button>
 </div>
-
-<!-- Modal HTML embedded directly into document -->
-<div id="acerto" class="modal">
-  <p>PARABÉNS.. VOCÊ ACERTOU!!!</p>
-  <a href="#" rel="modal:close">FECHAR</a>
-</div>
-
-<!-- Modal HTML embedded directly into document -->
-<div id="erro" class="modal">
-  <p>AH QUE PENA TENTE DE NOVO!!!</p>
-  <a href="#" rel="modal:close">FECHAR</a>
-</div>
-
-
-
-
-
 </body>
 </html>
