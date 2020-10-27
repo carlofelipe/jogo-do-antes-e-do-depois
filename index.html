@@ -6,8 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 <style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 	.container_box_principal {
-         height: 300px;
+         height: 150px;
          display: flex;
          flex-direction: row;
          justify-content: center;
@@ -17,34 +19,34 @@
     
     .boxNumMeio {
          width: 33%;
-         height: 300px;
+         height: 150px;
          background: red;
          border:2px black solid;
          font-size:7em;
          font-weight: bolder;
-         line-height: 300px;
+         line-height: 150px;
          text-align:center;
     }
 
     .boxAntecessor{
     	width: 33%;
-        height: 300px;
+        height: 150px;
         background: yellow;
         border:2px black solid;
         font-size:7em;
         font-weight: bolder;
-        line-height: 300px;
+        line-height: 150px;
         text-align:center;
     }
 
     .boxSucessor{
     	width: 33%;
-        height: 300px;
+        height: 150px;
         background: blue;
         border:2px black solid;
         font-size:7em;
         font-weight: bolder;
-        line-height: 300px;
+        line-height: 150px;
         text-align:center;
     }
 
@@ -52,6 +54,13 @@
         margin: 0px;
         padding:0px;
         font-family: sans-serif;
+ 	}
+
+ 	.titulo {
+ 		font-family: 'Oswald', sans-serif;
+ 		font-size: 1.5em;
+ 		margin-top:10px;
+ 		margin-bottom:10px;
  	}
 
  	.container_site {
@@ -87,33 +96,57 @@
     }
 
     .botaoEscolha {
-    	width: 16%;
+    	width: 25%;
     	height: 50px;
     	background: black; 
+    	color:white;
+    	font-weight: bold;
+    	font-size: 2em;
+    	transition: .5s;
+    }
+
+    .botaoEscolha:hover {
+    	width: 25%;
+    	height: 50px;
+    	background: grey; 
     	color:white;
     	font-weight: bold;
     	font-size: 2em;
     }
 
     .botaoAcao {
-    	width:20%;
+    	width:47%;
     	font-size:1.2em;
     	background:red;
     	color:white;
     	height:50px;
     	border-radius:5px;
-    	border:5px solid black;
+    	border:1px solid black;
+    	padding:1px;
     }
 
     @media only screen and (max-width: 500px) {
     	.botaoAcao {
-    		width:20%;
+    		width:45%;
     		font-size:0.8em;
     		background:red;
     		color:white;
     		height:50px;
     		border-radius:5px;
-    		border:5px solid black;
+    		border:1px solid black;
+    		padding:1px;
+    		transition: .5s;
+    	}
+
+    	.botaoAcao:hover {
+    		width:45%;
+    		font-size:0.8em;
+    		background:rgb(245,131,136);
+    		color:white;
+    		height:50px;
+    		border-radius:5px;
+    		border:1px solid black;
+    		padding:1px;
     	}
     }	
 
@@ -191,7 +224,7 @@
 </script>
 <body>
 <div class="container_site">	
-	<h1 style="text-shadow:2px 2px grey;">QUEM VEM ANTES E DEPOIS?</h1>	
+	<h1 class="titulo">QUEM VEM ANTES E DEPOIS?</h1>	
 	<div class="container_box_principal">
 		<div class="boxAntecessor" id="antecessor"></div>
 		<div class="boxNumMeio" id="exibe_primeiro_num"></div>
@@ -211,7 +244,10 @@
 			<button class="botaoEscolha" onclick="escolheAntecessor(8)">8</button>
 			<button class="botaoEscolha" onclick="escolheAntecessor(9)">9</button>
 		</div>
-		<div class="boxNumMeioEscolha"></div>
+		<div class="boxNumMeioEscolha">
+			<button onclick="iniciaJogo()" class="botaoAcao">INICIAR</button>
+			<button onclick="vejaAcertou()" class="botaoAcao">ACERTOU?</button>
+		</div>
 		<div class="boxSucessorEscolha">
 			<button class="botaoEscolha" onclick="escolheSucessor(0)">0</button>
 			<button class="botaoEscolha" onclick="escolheSucessor(1)">1</button>
@@ -225,10 +261,6 @@
 			<button class="botaoEscolha" onclick="escolheSucessor(9)">9</button>
 		</div>
 	</div>
-	<br><br>
-	<button onclick="iniciaJogo()" class="botaoAcao">INICIAR</button>
-
-	<button onclick="vejaAcertou()" class="botaoAcao">VEJA SE ACERTOU!!</button>
 </div>
 </body>
 </html>
