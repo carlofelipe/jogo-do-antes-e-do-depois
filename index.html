@@ -3,226 +3,272 @@
 <head>
 	<title>QUEM VEM ANTES E DEPOIS?</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
-<style type="text/css">
-	@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-	.container_box_principal {
-         height: 150px;
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center
-         border: 2px black solid;
-    }
-    
-    .boxNumMeio {
-         width: 33%;
-         height: 150px;
-         background: red;
-         border:2px black solid;
-         font-size:7em;
-         font-weight: bolder;
-         line-height: 150px;
-         text-align:center;
-    }
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script src="https://github.com/makeusabrew/bootbox/releases/download/v4.4.0/bootbox.min.js"></script>
+	
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+		.container_box_principal {
+	         height: 150px;
+	         display: flex;
+	         flex-direction: row;
+	         justify-content: center;
+	         align-items: center
+	         border: 2px black solid;
+	    }
+	    .boxNumMeio {
+	         width: 33%;
+	         height: 150px;
+	         background: red;
+	         border:2px black solid;
+	         font-size:7em;
+	         font-weight: bolder;
+	         line-height: 150px;
+	         text-align:center;
+	    }
+	    .boxAntecessor{
+	    	width: 33%;
+	        height: 150px;
+	        background: yellow;
+	        border:2px black solid;
+	        font-size:7em;
+	        font-weight: bolder;
+	        line-height: 150px;
+	        text-align:center;
+	    }
+	    .boxSucessor{
+	    	width: 33%;
+	        height: 150px;
+	        background: blue;
+	        border:2px black solid;
+	        font-size:7em;
+	        font-weight: bolder;
+	        line-height: 150px;
+	        text-align:center;
+	    }
+	    body {
+	        margin: 0px;
+	        padding:0px;
+	        font-family: sans-serif;
+	 	}
+	 	.titulo {
+	 		font-family: 'Oswald', sans-serif;
+	 		font-size: 1.5em;
+	 		margin-top:10px;
+	 		margin-bottom:10px;
+	 	}
+	 	.container_site {
+	 		width: 100vw;
+			height: 100vh;
+			margin-left:auto;
+			margin-right:auto;
+			text-align: center;
+		}
+		.container_box_escolha {
+			 height: 80px;
+	         display: flex;
+	         flex-direction: row;
+	         justify-content: center;
+	         align-items: center
+	         border: 1px black solid;
+		}
+		.boxSucessorEscolha{
+	    	width: 33.3%;
+	        height: 80px;
+	    }
+	    .boxAntecessorEscolha{
+	    	width: 33.3%;
+	        height: 80px;
+	    }
+	    .boxNumMeioEscolha {
+	         width: 33.3%;
+	         height: 80px;
+	    }
+	    .botaoEscolha {
+	    	width: 25%;
+	    	height: 50px;
+	    	background: black; 
+	    	color:white;
+	    	font-weight: bold;
+	    	font-size: 2em;
+	    	transition: .5s;
+	    }
+	    .botaoEscolha:hover {
+	    	width: 25%;
+	    	height: 50px;
+	    	background: grey; 
+	    	color:white;
+	    	font-weight: bold;
+	    	font-size: 2em;
+	    }
+	    .botaoAcao {
+	    	width:47%;
+	    	font-size:1.2em;
+	    	background:red;
+	    	color:white;
+	    	height:80px;
+	    	border-radius:5px;
+	    	border:1px solid black;
+	    	padding:1px;
+	    }
+	    .musica {
+	    	display:none;
+	    }
+	    @media only screen and (max-width: 500px) {
+	    	.botaoAcao {
+	    		width:45%;
+	    		font-size:0.8em;
+	    		background:red;
+	    		color:white;
+	    		height:80px;
+	    		border-radius:5px;
+	    		border:1px solid black;
+	    		padding:1px;
+	    		transition: .5s;
+	    	}
+	    	.botaoAcao:hover {
+	    		width:45%;
+	    		font-size:0.8em;
+	    		background:rgb(245,131,136);
+	    		color:white;
+	    		height:80px;
+	    		border-radius:5px;
+	    		border:1px solid black;
+	    		padding:1px;
+	    	}
+	    }	
 
-    .boxAntecessor{
-    	width: 33%;
-        height: 150px;
-        background: yellow;
-        border:2px black solid;
-        font-size:7em;
-        font-weight: bolder;
-        line-height: 150px;
-        text-align:center;
-    }
-
-    .boxSucessor{
-    	width: 33%;
-        height: 150px;
-        background: blue;
-        border:2px black solid;
-        font-size:7em;
-        font-weight: bolder;
-        line-height: 150px;
-        text-align:center;
-    }
-
-    body {
-        margin: 0px;
-        padding:0px;
-        font-family: sans-serif;
- 	}
-
- 	.titulo {
- 		font-family: 'Oswald', sans-serif;
- 		font-size: 1.5em;
- 		margin-top:10px;
- 		margin-bottom:10px;
- 	}
-
- 	.container_site {
- 		width: 100vw;
-		height: 100vh;
-		margin-left:auto;
-		margin-right:auto;
-		text-align: center;
-	}
-
-	.container_box_escolha {
-		 height: 80px;
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center
-         border: 1px black solid;
-	}
-
-	.boxSucessorEscolha{
-    	width: 33.3%;
-        height: 80px;
-    }
-
-    .boxAntecessorEscolha{
-    	width: 33.3%;
-        height: 80px;
-    }
-
-    .boxNumMeioEscolha {
-         width: 33.3%;
-         height: 80px;
-    }
-
-    .botaoEscolha {
-    	width: 25%;
-    	height: 50px;
-    	background: black; 
-    	color:white;
-    	font-weight: bold;
-    	font-size: 2em;
-    	transition: .5s;
-    }
-
-    .botaoEscolha:hover {
-    	width: 25%;
-    	height: 50px;
-    	background: grey; 
-    	color:white;
-    	font-weight: bold;
-    	font-size: 2em;
-    }
-
-    .botaoAcao {
-    	width:47%;
-    	font-size:1.2em;
-    	background:red;
-    	color:white;
-    	height:50px;
-    	border-radius:5px;
-    	border:1px solid black;
-    	padding:1px;
-    }
-
-    @media only screen and (max-width: 500px) {
-    	.botaoAcao {
-    		width:45%;
-    		font-size:0.8em;
-    		background:red;
-    		color:white;
-    		height:50px;
-    		border-radius:5px;
-    		border:1px solid black;
-    		padding:1px;
-    		transition: .5s;
-    	}
-
-    	.botaoAcao:hover {
-    		width:45%;
-    		font-size:0.8em;
-    		background:rgb(245,131,136);
-    		color:white;
-    		height:50px;
-    		border-radius:5px;
-    		border:1px solid black;
-    		padding:1px;
-    	}
-    }	
-
-</style>
-
-<script type="text/javascript">
-		
-		var numeroInicialDoJogoAnterior = 0
-
-		function iniciaJogo(){
+	</style>
+	
+	<script type="text/javascript">
 			
-			document.getElementById("antecessor").innerHTML = "";
-			document.getElementById("sucessor").innerHTML = "";
+			var numeroInicialDoJogoAnterior = 0
 
-			var numeroInicial = Math.floor(Math.random() * 10);
-			
-			if (numeroInicial == 0)
-				numeroInicial++;
-			if (numeroInicial == 9)
-				numeroInicial--;
+			function iniciaJogo(){
 
-			while (numeroInicial == numeroInicialDoJogoAnterior) {
-				numeroInicial = Math.floor(Math.random() * 10);
+				var audio = document.getElementById("audio");
+	        	audio.play();
+				
+				document.getElementById("antecessor").innerHTML = "";
+				document.getElementById("sucessor").innerHTML = "";
+
+				var numeroInicial = Math.floor(Math.random() * 20);
+				
 				if (numeroInicial == 0)
 					numeroInicial++;
-				if (numeroInicial == 9)
-					numeroInicial--;				
+				if (numeroInicial == 20)
+					numeroInicial--;
+
+				while (numeroInicial == numeroInicialDoJogoAnterior) {
+					numeroInicial = Math.floor(Math.random() * 20);
+					if (numeroInicial == 0)
+						numeroInicial++;
+					if (numeroInicial == 20)
+						numeroInicial--;				
+				}
+					
+				numeroInicialDoJogoAnterior = numeroInicial				
+				document.getElementById("exibe_primeiro_num").innerHTML = numeroInicial;
 			}
+
+			function escolheAntecessor(num) {
+
+				if (document.getElementById("antecessor").innerHTML.length < 2) {
+					document.getElementById("antecessor").innerHTML += num;
+				} else if (document.getElementById("antecessor").innerHTML.length == 2) {
+					document.getElementById("antecessor").innerHTML = num;			
+				}	
+								
+			}
+
+			function escolheSucessor(num) {
+
+				if (document.getElementById("sucessor").innerHTML.length < 2) {
+					document.getElementById("sucessor").innerHTML += num;
+				} else if (document.getElementById("sucessor").innerHTML.length == 2) {
+					document.getElementById("sucessor").innerHTML = num;			
+				}
+					
 				
-			numeroInicialDoJogoAnterior = numeroInicial				
-			document.getElementById("exibe_primeiro_num").innerHTML = numeroInicial;
-		}
-
-		function escolheAntecessor(num) {
-			document.getElementById("antecessor").innerHTML = num;
-		}
-
-		function escolheSucessor(num) {
-			document.getElementById("sucessor").innerHTML = num;
-		}
-
-		function vejaAcertou() {
-			
-			if (document.getElementById("antecessor").innerHTML == "") {
-
-				alert("CADÊ O NÚMERO QUE VEM ANTES ???");
-				return
 			}
 
-			if (document.getElementById("sucessor").innerHTML == "") {
+			function vejaAcertou() {
 				
-				alert("CADÊ O NÚMERO QUE VEM DEPOIS ???");
-				return 
-			}
+				if (document.getElementById("antecessor").innerHTML == "") {
 
-			var antecessor  = parseInt(document.getElementById("antecessor").innerHTML);					
-			var doMeio = parseInt(document.getElementById("exibe_primeiro_num").innerHTML);
-			var sucessor  = parseInt(document.getElementById("sucessor").innerHTML);
+					//alert("CADÊ O NÚMERO QUE VEM ANTES ???");
+					bootbox.alert(
+					{
+    					title: "QUEM VEM ANTES E DEPOIS? - FALTOU ALGUMA COISA...",
+    					message: "CADÊ O NÚMERO QUE VEM ANTES ???"
+    				});
 
-			if (!(sucessor ==  doMeio + 1)) {
-				alert("QUE PENA TENTE DE NOVO!!!");
-				return 	
-			}
+					return
+				}
 
-			if (!(antecessor ==  doMeio - 1)) {
-				alert("QUE PENA TENTE DE NOVO!!!");
-				return 	 	
-			}
+				if (document.getElementById("sucessor").innerHTML == "") {
+					
+					bootbox.alert(
+					{
+    					title: "QUEM VEM ANTES E DEPOIS? - FALTOU ALGUMA COISA...",
+    					message: "CADÊ O NÚMERO QUE VEM DEPOIS ???"
+    				});
+					return 
+				}
 
-			alert("PARABÉNS VOCÊ ACERTOU!!!");
-			return
+				var antecessor  = parseInt(document.getElementById("antecessor").innerHTML);					
+				var doMeio = parseInt(document.getElementById("exibe_primeiro_num").innerHTML);
+				var sucessor  = parseInt(document.getElementById("sucessor").innerHTML);
 
-		}		
+				if (!(sucessor ==  doMeio + 1)) {
+					bootbox.alert({
+    					title: "QUEM VEM ANTES E DEPOIS? - VAMOS JOGAR",
+    					message: "QUE PENA TENTE DE NOVO!"
+    				});
+					return; 	
+				}
 
-</script>
+				if (!(antecessor ==  doMeio - 1)) {
+					bootbox.alert({
+    					title: "QUEM VEM ANTES E DEPOIS? - VAMOS JOGAR",
+    					message: "QUE PENA TENTE DE NOVO!"
+    				});
+					return;
+				}
+
+				bootbox.alert({
+    					title: "QUEM VEM ANTES E DEPOIS? - VAMOS JOGAR",
+    					message: "PARABÉNS VOCÊ ACERTOU!"
+    				});
+				return;
+
+				
+
+			}		
+	</script>
+		
+
+</head>
+
 <body>
+
+<div id="erro" title="AHHHHHHH!!!" style="display:none">
+    <p style="font-family:Oswald; font-size:2em; color:red; font-weight:bolder;">QUE PENA TENTE NOVAMENTE!</p>
+</div>
+
+<div id="acerto" title="EHHHHHH!!" style="display:none">
+    <p style="font-family:Oswald; font-size:2em; color:red; font-weight:bolder;">PARABÉNS VOCÊ ACERTOU!</p>
+</div>
+
+<audio id="audio" src="jogo.mp3" class="musica"></audio>
 <div class="container_site">	
 	<h1 class="titulo">QUEM VEM ANTES E DEPOIS?</h1>	
 	<div class="container_box_principal">
